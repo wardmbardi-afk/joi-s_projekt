@@ -1,0 +1,780 @@
+/* =========================================================
+   JOE'S GRILL & PIZZA — PREMIUM MENU DESIGN
+   ========================================================= */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --green: #b8e85b;
+  --green-light: #e9f7bd;
+  --green-dark: #657d20;
+
+  --brown: #3b2412;
+  --brown-light: #68401f;
+
+  --orange: #f28a24;
+  --orange-light: #ffb35c;
+
+  --cream: #fffdf4;
+  --cream-dark: #f4eedc;
+
+  --text: #202020;
+  --muted: #69705b;
+
+  --white: #ffffff;
+
+  --shadow-sm: 0 4px 15px rgba(59, 36, 18, 0.08);
+  --shadow-md: 0 12px 35px rgba(59, 36, 18, 0.12);
+  --shadow-lg: 0 25px 60px rgba(59, 36, 18, 0.18);
+
+  --radius: 20px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+
+  font-family:
+    Inter,
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(184, 232, 91, 0.18),
+      transparent 35%
+    ),
+    linear-gradient(
+      135deg,
+      #f8f5e7,
+      #eee9d4
+    );
+
+  color: var(--text);
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.menu-header {
+  position: relative;
+
+  padding: 65px 20px 55px;
+
+  text-align: center;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 15% 20%,
+      rgba(255, 255, 255, 0.35),
+      transparent 25%
+    ),
+    radial-gradient(
+      circle at 85% 80%,
+      rgba(255, 255, 255, 0.25),
+      transparent 30%
+    ),
+    linear-gradient(
+      135deg,
+      #b8e85b,
+      #a9dc45
+    );
+
+  border-bottom: 7px solid var(--orange);
+
+  box-shadow:
+    0 8px 30px rgba(59, 36, 18, 0.12);
+}
+
+
+/* decorative circles */
+
+.menu-header::before,
+.menu-header::after {
+  content: "";
+
+  position: absolute;
+
+  border-radius: 50%;
+
+  pointer-events: none;
+}
+
+.menu-header::before {
+  width: 280px;
+  height: 280px;
+
+  top: -170px;
+  left: -90px;
+
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.menu-header::after {
+  width: 350px;
+  height: 350px;
+
+  right: -160px;
+  bottom: -240px;
+
+  background: rgba(255, 255, 255, 0.13);
+}
+
+
+/* =========================================================
+   BRAND
+   ========================================================= */
+
+.brand {
+  position: relative;
+  z-index: 2;
+
+  color: var(--brown);
+
+  font-size: clamp(44px, 8vw, 88px);
+
+  font-weight: 950;
+
+  line-height: 0.95;
+
+  letter-spacing: -5px;
+
+  text-shadow:
+    3px 3px 0 rgba(255, 255, 255, 0.18);
+}
+
+.brand span {
+  font-size: 0.48em;
+
+  letter-spacing: -1px;
+
+  font-weight: 900;
+}
+
+.brand b {
+  color: var(--orange);
+
+  font-size: 0.48em;
+
+  margin-left: 8px;
+
+  letter-spacing: -1px;
+
+  text-shadow: none;
+}
+
+
+/* subtitle */
+
+.menu-header p {
+  position: relative;
+  z-index: 2;
+
+  margin: 22px 0 28px;
+
+  color: var(--brown);
+
+  font-size: clamp(14px, 2vw, 20px);
+
+  font-weight: 900;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   BACK BUTTON
+   ========================================================= */
+
+.back-button {
+  position: relative;
+  z-index: 2;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  padding: 13px 25px;
+
+  color: white;
+
+  background: var(--brown);
+
+  text-decoration: none;
+
+  border-radius: 999px;
+
+  font-size: 15px;
+
+  font-weight: 800;
+
+  box-shadow:
+    0 7px 20px rgba(59, 36, 18, 0.2);
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.back-button:hover {
+  background: var(--orange);
+
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 12px 25px rgba(59, 36, 18, 0.22);
+}
+
+.back-button:active {
+  transform: translateY(0);
+}
+
+
+/* =========================================================
+   MAIN MENU
+   ========================================================= */
+
+.menu {
+  width: min(1250px, 92%);
+
+  margin: 55px auto 80px;
+
+  display: grid;
+
+  gap: 30px;
+}
+
+
+/* =========================================================
+   MENU SECTIONS
+   ========================================================= */
+
+.menu-section {
+  position: relative;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.96),
+      rgba(255, 253, 244, 0.96)
+    );
+
+  border: 1px solid rgba(166, 207, 77, 0.5);
+
+  border-radius: var(--radius);
+
+  padding: 32px;
+
+  box-shadow: var(--shadow-md);
+
+  overflow: hidden;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.menu-section:hover {
+  transform: translateY(-3px);
+
+  box-shadow: var(--shadow-lg);
+}
+
+
+/* green top line */
+
+.menu-section::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 5px;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--green),
+      var(--orange),
+      var(--green)
+    );
+}
+
+
+/* =========================================================
+   SECTION TITLES
+   ========================================================= */
+
+.menu-section h2 {
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+
+  margin-bottom: 8px;
+
+  color: var(--brown);
+
+  font-size: clamp(25px, 3vw, 38px);
+
+  font-weight: 950;
+
+  letter-spacing: -1px;
+
+  text-transform: uppercase;
+}
+
+.menu-section h2::before {
+  content: "";
+
+  display: block;
+
+  width: 7px;
+  height: 34px;
+
+  flex-shrink: 0;
+
+  border-radius: 20px;
+
+  background:
+    linear-gradient(
+      to bottom,
+      var(--orange),
+      var(--orange-light)
+    );
+}
+
+
+/* =========================================================
+   NOTES
+   ========================================================= */
+
+.note {
+  display: inline-block;
+
+  margin: 3px 0 22px;
+
+  padding: 7px 13px;
+
+  color: var(--green-dark);
+
+  background: var(--green-light);
+
+  border-radius: 999px;
+
+  font-size: 14px;
+
+  font-style: normal;
+
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   ITEMS GRID
+   ========================================================= */
+
+.items {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 14px 35px;
+}
+
+.two-col {
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+}
+
+.pizza-grid {
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+}
+
+
+/* =========================================================
+   FOOD ITEM
+   ========================================================= */
+
+.items article {
+  position: relative;
+
+  min-height: 65px;
+
+  padding: 14px 4px;
+
+  border-bottom:
+    1px dashed rgba(105, 125, 32, 0.35);
+
+  transition:
+    transform 0.2s ease,
+    padding-left 0.2s ease;
+}
+
+.items article:hover {
+  transform: translateX(4px);
+
+  padding-left: 8px;
+}
+
+
+/* =========================================================
+   FOOD NAME
+   ========================================================= */
+
+.items h3 {
+  margin: 0;
+
+  padding-right: 75px;
+
+  color: var(--text);
+
+  font-size: 17px;
+
+  font-weight: 850;
+
+  line-height: 1.35;
+}
+
+
+/* =========================================================
+   PRICE
+   ========================================================= */
+
+.items h3 span {
+  float: right;
+
+  margin-left: 8px;
+
+  padding: 5px 10px;
+
+  color: var(--brown);
+
+  background:
+    linear-gradient(
+      135deg,
+      #eef7cf,
+      #dcefa5
+    );
+
+  border-radius: 8px;
+
+  font-size: 15px;
+
+  font-weight: 950;
+
+  white-space: nowrap;
+
+  box-shadow:
+    0 2px 6px rgba(59, 36, 18, 0.07);
+}
+
+
+/* =========================================================
+   DESCRIPTION
+   ========================================================= */
+
+.items p {
+  margin: 6px 0 0;
+
+  max-width: 90%;
+
+  color: var(--muted);
+
+  font-size: 13px;
+
+  line-height: 1.45;
+
+  font-style: normal;
+
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   EXTRA / SPECIAL NOTICE
+   ========================================================= */
+
+.extra {
+  margin: 30px 0 0;
+
+  padding: 18px 20px;
+
+  text-align: center;
+
+  color: white;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--brown),
+      var(--brown-light)
+    );
+
+  border: none;
+
+  border-radius: 14px;
+
+  font-size: 18px;
+
+  font-weight: 900;
+
+  letter-spacing: 0.5px;
+
+  box-shadow:
+    0 8px 20px rgba(59, 36, 18, 0.15);
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer {
+  position: relative;
+
+  padding: 45px 20px;
+
+  color: white;
+
+  text-align: center;
+
+  background:
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(255, 255, 255, 0.07),
+      transparent 30%
+    ),
+    linear-gradient(
+      135deg,
+      #3b2412,
+      #241508
+    );
+
+  border-top:
+    5px solid var(--orange);
+}
+
+footer strong {
+  display: block;
+
+  margin-bottom: 12px;
+
+  color: var(--orange);
+
+  font-size: 27px;
+
+  font-weight: 950;
+
+  letter-spacing: -0.5px;
+}
+
+footer p {
+  margin: 6px 0;
+
+  color: rgba(255, 255, 255, 0.8);
+
+  font-size: 15px;
+
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--cream-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background:
+    linear-gradient(
+      var(--green-dark),
+      var(--orange)
+    );
+
+  border-radius: 20px;
+
+  border: 3px solid var(--cream-dark);
+}
+
+
+/* =========================================================
+   SELECTION
+   ========================================================= */
+
+::selection {
+  color: var(--brown);
+
+  background: var(--green);
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+  .menu-header {
+    padding: 48px 18px 42px;
+  }
+
+  .brand {
+    font-size: clamp(40px, 13vw, 65px);
+
+    letter-spacing: -3px;
+  }
+
+  .menu-header p {
+    font-size: 12px;
+
+    letter-spacing: 1px;
+
+    line-height: 1.6;
+  }
+
+  .menu {
+    width: 94%;
+
+    margin: 30px auto 50px;
+
+    gap: 20px;
+  }
+
+  .menu-section {
+    padding: 22px 18px;
+
+    border-radius: 16px;
+  }
+
+  .menu-section h2 {
+    font-size: 23px;
+  }
+
+  .menu-section h2::before {
+    width: 5px;
+    height: 27px;
+  }
+
+  .items,
+  .two-col,
+  .pizza-grid {
+    grid-template-columns: 1fr;
+
+    gap: 0;
+  }
+
+  .items article {
+    padding: 14px 0;
+  }
+
+  .items h3 {
+    font-size: 16px;
+
+    padding-right: 65px;
+  }
+
+  .items h3 span {
+    font-size: 14px;
+
+    padding: 4px 8px;
+  }
+
+  .items p {
+    font-size: 13px;
+  }
+
+  .extra {
+    font-size: 16px;
+
+    padding: 16px;
+  }
+
+  footer {
+    padding: 38px 18px;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 420px) {
+
+  .brand {
+    font-size: 38px;
+  }
+
+  .menu-section {
+    padding: 19px 15px;
+  }
+
+  .menu-section h2 {
+    font-size: 21px;
+  }
+
+  .items h3 {
+    font-size: 15px;
+  }
+
+  .items h3 span {
+    font-size: 13px;
+  }
+
+  .items p {
+    font-size: 12px;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+  }
+}
